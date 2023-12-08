@@ -250,16 +250,20 @@ def cool(request):
     return render(request, 'cool.html',{'s':reps, 'user':user, 'work1':work1})
 
 
+def routine(request):
+    return render(request, 'routine.html')
+
 def register(request):
    
     form = RForm()
     if request.method == 'POST':
-        form = RForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('loginr')
-        else:
-            return HttpResponse("not working")
+        try:
+            form = RForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('loginr')
+        except Exception as e:
+            return HttpResponse(e)
                
         
     context={'form':form}

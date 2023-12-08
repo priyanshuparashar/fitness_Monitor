@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-lrfzn2ma0_3gbkl0ct+dbtdpolag5rgcafxfic%la-t0h2*wng
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'fitness_coach.urls'
@@ -115,6 +116,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_PORT =587
+EMAIL_HOST_USER ='bharatautosolution81@gmail.com'
+EMAIL_HOST_PASSWORD ='xrhleilaxgdcomsh'
+EMAIL_USE_TLS = True
 
 
 # Password validation

@@ -17,7 +17,7 @@ urlpatterns = [
     path('health/', views.health, name='health'),
     path('notification/', views.noti, name='noti'),
     path('contact/', views.contactt, name='contactt'),
-
+    path('routine/', views.routine, name='routine'),
     path('food/', views.food1, name='food'),
     path('pd_u/', views.pd_u, name='pd_u'),
     path('h_w/', views.h_w, name='h_w'),

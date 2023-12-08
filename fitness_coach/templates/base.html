@@ -20,10 +20,38 @@
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="{% static 'css/tooplate-gymso-style.css'%}">
+    <style>
+        #waterPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 999;
+        }
+        #waterPopup .closeIcon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    </style>
 
 </head>
+
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
     {% include 'nav.html' %}
+    <div id="waterPopup">
+    <i class="fa-solid fa-glass-water"></i>
+        <p>Remember to drink water!</p>
+        <p>Remain Hydrated</p>
+        <span class="closeIcon" onclick="hideWaterPopup()">&#10006;</span>
+    </div>
     {% block content %}
 
 
@@ -32,6 +60,23 @@
 
     {% endblock %}
     {% include 'footer.html' %}
+    <script>
+        // Function to show the water popup
+        function showWaterPopup() {
+            document.getElementById('waterPopup').style.display = 'block';
+        }
+
+        // Function to hide the water popup
+        function hideWaterPopup() {
+            document.getElementById('waterPopup').style.display = 'none';
+        }
+
+        // Set interval to show the popup every 30 minutes (adjust the interval as needed)
+        setInterval(showWaterPopup, 20000);
+
+        // Set timeout to hide the popup after 5 seconds (adjust the timeout as needed)
+      
+    </script>
      <!-- SCRIPTS -->
      <script src="{% static 'js/jquery.min.js'%}"></script>
      <script src=" {% static 'js/bootstrap.min.js'%}"></script>
